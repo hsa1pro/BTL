@@ -18,6 +18,7 @@ public class modelCharacter {
     protected void setAttack(int attack){
         this.attack = attack;
     }
+    protected void setMana(int mana) {this.mana = mana;}
     protected String getName(){return namechar;}
     protected int getHealth(){return health;}
     protected int getArmor(){return armor;}
