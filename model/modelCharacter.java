@@ -1,15 +1,24 @@
 package model;
-
+// buff la hieu ung gay cho ke dich
+// debuff la hieu ung ke dich gay cho minh
+// debuff 1 la giam attack trong 3 luot
+// debuff 2 la giam armor trong 3 luot
+// debuff 3 la tru mau trong 3 luot
+// debuff 4 la choang / debuff 4 se dung trong phan battle
 public class modelCharacter {
+    private String namechar;
     private int health;
     private int armor;
     private int attack;
-    private String namechar;
-    private int mana;
+    private String elemental;
+    private String burst;
+    //function set
     protected void setName(String name){
         namechar = name;
     }
-    protected void setHealth(int health){
+    protected void setElemental(String element){this.elemental = elemental;}
+    protected void setBurst(String burst){this.burst = burst;}
+    public void setHealth(int health){
         this.health = health;
     }
     protected void setArmor(int armor){
@@ -18,17 +27,18 @@ public class modelCharacter {
     protected void setAttack(int attack){
         this.attack = attack;
     }
-    protected void setMana(int mana){this.mana = mana;}
+    //function get
     protected String getName(){return namechar;}
-    protected int getHealth(){return health;}
-    protected int getArmor(){return armor;}
-    protected int getAttack(){return attack;}
-    protected int getMana(){return mana;}
-    protected void passive(){}
-    protected void attackSkill(){}
-    protected void defendSkill(){}
-    protected void normalSkill(){}
-    protected void elementalSkill(){}
-    protected void ultimateSkill(){}
-    protected void spealcialSkill(){} // co the co hoac khong
+    public String getElemental(){return elemental;}
+    public String getBurst(){return burst;}
+    public int getHealth(){return health;}
+    public int getArmor(){return armor;}
+    public int getAttack(){return attack;}
+
+    //skill
+    public void passive(){}
+    public void attackSkill(){}
+    public void healSkill(){}
+    public void elementalSkill(){}
+    public void burstSkill(){}
 }
