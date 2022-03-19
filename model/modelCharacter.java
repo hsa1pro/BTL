@@ -5,6 +5,7 @@ public class modelCharacter {
     private int armor;
     private int attack;
     private String namechar;
+    private int mana;
     protected void setName(String name){
         namechar = name;
     }
@@ -16,7 +17,7 @@ public class modelCharacter {
     }
     protected void setAttack(int attack){
         this.attack = attack;
-    };
+    }
     protected String getName(){return namechar;}
     protected int getHealth(){return health;}
     protected int getArmor(){return armor;}
