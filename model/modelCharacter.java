@@ -5,6 +5,7 @@ public class modelCharacter {
     private int armor;
     private int attack;
     private String namechar;
+    private int mana;
     protected void setName(String name){
         namechar = name;
     }
