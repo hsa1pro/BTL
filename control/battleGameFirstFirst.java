@@ -3,7 +3,7 @@ import model.*;
 public class battleGameFirstFirst {
     private firstPet Pet;
     private firstBoss Boss;
-    battleGameFirstFirst(){
+    public battleGameFirstFirst(){
         Boss = new firstBoss();
         Pet = new firstPet();
     }
