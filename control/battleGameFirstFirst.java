@@ -26,22 +26,22 @@ public class battleGameFirstFirst {
         if (Pet.getPassiveMode() && Pet.getPassiveTurn() > 0)
             System.out.println(Pet.getName() + " su dung " + Pet.getPassive() + " trong " + Pet.getPassiveTurn() + " luot. ");
     }
-    public void petNoti1(firstPet Pet, firstBoss Boss){
+    public void petNoti1(){
         int damage = (Pet.getDamage() - Boss.getArmor());
         System.out.println("Ban su dung tan cong");
         System.out.println("Don danh gay " + damage + " sat thuong. ");
         Boss.setHealth(Boss.getHealth() - damage);
     }
-    public void petNoti2(firstPet Pet){
+    public void petNoti2(){
         System.out.println("Ban su dung hoi phuc. ");
     }
-    public void petNoti3(firstPet Pet, firstBoss Boss){
+    public void petNoti3(){
         int damage = (Pet.getDamage() - Boss.getArmor());
         System.out.println("Ban su dung " + Pet.getElemental());
         System.out.println("Don danh gay " + damage + " sat thuong. ");
         Boss.setHealth(Boss.getHealth() - damage);
     }
-    public void petNoti4(firstPet Pet, firstBoss Boss){
+    public void petNoti4(){
         int damage = (Pet.getDamage() - Boss.getArmor());
         System.out.println("Ban su dung tan cong");
         System.out.println("Don danh gay " + damage + " sat thuong. ");
