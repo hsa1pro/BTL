@@ -12,7 +12,7 @@ public class Character extends modelCharacter{
     private int passiveTurn;
     private int elementalTurn;
     private int burstTurn;
-
+//set
     protected void setOriginAttack(int originAttack){this.originAttack = originAttack;}
     protected void setOriginArmor(int originArmor){this.originArmor = originArmor;}
     public void setDamage(int damage){this.damage = damage;}
