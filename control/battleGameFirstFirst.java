@@ -1,10 +1,11 @@
 package control;
 import model.*;
 public class battleGameFirstFirst {
-
+    private firstPet Pet;
+    private firstBoss Boss;
     battleGameFirstFirst(){
-        firstBoss Boss = new firstBoss();
-        firstPet Pet = new firstPet();
+        Boss = new firstBoss();
+        Pet = new firstPet();
     }
     public boolean check(firstBoss Boss, firstPet Pet){
         if (Boss.getHealth() == 0)
@@ -19,7 +20,7 @@ public class battleGameFirstFirst {
         }
         while (check(Boss, Pet));
     }
-
+    public int petHealth(){return Pet.getHealth();}
     public void petNoti0(firstPet Pet){
         if (Pet.getPassiveMode() && Pet.getPassiveTurn() > 0)
             System.out.println(Pet.getName() + " su dung " + Pet.getPassive() + " trong " + Pet.getPassiveTurn() + " luot. ");
