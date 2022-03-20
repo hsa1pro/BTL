@@ -13,16 +13,16 @@ public class Character extends modelCharacter{
     private int elementalTurn;
     private int burstTurn;
 
-    protected void setOriginAttack(int originAttack){this.originAttack = originAttack;}
-    protected void setOriginArmor(int originArmor){this.originArmor = originArmor;}
+    public void setOriginAttack(int originAttack){this.originAttack = originAttack;}
+    public void setOriginArmor(int originArmor){this.originArmor = originArmor;}
     public void setDamage(int damage){this.damage = damage;}
     public void setBuff(int buff){this.buff = buff;}
     public void setDebuff(int debuff){this.debuff = debuff;}
     public void setDebuffTurn(int debuffTurn){this.debuffTurn = debuffTurn;}
-    protected void setPassiveTurn(int passiveTurn){this.passiveTurn = passiveTurn;}
-    protected void setPassiveMode(boolean passiveMode){this.passiveMode = passiveMode;}
-    protected void setElementalTurn(int elementalTurn){this.elementalTurn = elementalTurn;}
-    protected void setBurstTurn(int burstTurn){this.burstTurn = burstTurn;}
+    public void setPassiveTurn(int passiveTurn){this.passiveTurn = passiveTurn;}
+    public void setPassiveMode(boolean passiveMode){this.passiveMode = passiveMode;}
+    public void setElementalTurn(int elementalTurn){this.elementalTurn = elementalTurn;}
+    public void setBurstTurn(int burstTurn){this.burstTurn = burstTurn;}
 
     public int getDamage(){return damage;}
     public int getOriginAttack(){return originAttack;}

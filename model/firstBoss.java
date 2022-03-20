@@ -1,7 +1,7 @@
 package model;
 
 public class firstBoss extends Character{
-    firstBoss(){
+    public firstBoss(){
         setName("Mugendaina");
         setElemental("Dynamax Cannon");
         setBurst("Enternabeam");

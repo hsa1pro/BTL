@@ -2,8 +2,9 @@ package model;
 
 public class firstPet extends Character{
 
-    firstPet(){
+    public firstPet(){
         setName("Mugendaina");
+        setPassive("Void Energy");
         setElemental("Dynamax Cannon");
         setBurst("Enternabeam");
         setHealth(75);

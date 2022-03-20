@@ -10,25 +10,28 @@ public class modelCharacter {
     private int health;
     private int armor;
     private int attack;
+    private String passive;
     private String elemental;
     private String burst;
     //function set
-    protected void setName(String name){
+    public void setName(String name){
         namechar = name;
     }
-    protected void setElemental(String element){this.elemental = elemental;}
-    protected void setBurst(String burst){this.burst = burst;}
+    public void setPassive(String passive){this.passive = passive;}
+    public void setElemental(String element){this.elemental = elemental;}
+    public void setBurst(String burst){this.burst = burst;}
     public void setHealth(int health){
         this.health = health;
     }
-    protected void setArmor(int armor){
+    public void setArmor(int armor){
         this.armor = armor;
     }
-    protected void setAttack(int attack){
+    public void setAttack(int attack){
         this.attack = attack;
     }
     //function get
-    protected String getName(){return namechar;}
+    public String getName(){return namechar;}
+    public String getPassive(){return passive;}
     public String getElemental(){return elemental;}
     public String getBurst(){return burst;}
     public int getHealth(){return health;}
