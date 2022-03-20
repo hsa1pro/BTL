@@ -1,6 +1,7 @@
 package model;
-
+import java.util.Random;
 public class Character extends modelCharacter{
+    public Random generator = new Random();
     private int originAttack;
     private int originArmor;
     private int damage;

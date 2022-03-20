@@ -1,8 +1,7 @@
 package model;
 
-public class firstPet extends Character{
-
-    firstPet(){
+public class firstBoss extends Character{
+    firstBoss(){
         setName("Mugendaina");
         setElemental("Dynamax Cannon");
         setBurst("Enternabeam");
