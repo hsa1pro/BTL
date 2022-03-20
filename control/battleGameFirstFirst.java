@@ -21,6 +21,7 @@ public class battleGameFirstFirst {
         while (check(Boss, Pet));
     }
     public int petHealth(){return Pet.getHealth();}
+    public int bossHealth(){return Boss.getHealth();}
     public void petNoti0(firstPet Pet){
         if (Pet.getPassiveMode() && Pet.getPassiveTurn() > 0)
             System.out.println(Pet.getName() + " su dung " + Pet.getPassive() + " trong " + Pet.getPassiveTurn() + " luot. ");
