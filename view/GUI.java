@@ -1,4 +1,5 @@
 package view;
+import java.util.Random;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -50,27 +51,77 @@ public class GUI {
 
         label1.setHorizontalTextPosition(SwingConstants.LEFT);
         label2.setHorizontalTextPosition(SwingConstants.RIGHT);
+        do
+        {
+            b.setOption(0);
+            b.petPassive();
+            b.petNoti0();
+            button.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    b.setOption(1);
+                    System.out.println("Attack");
+                    b.petAttack();
+                    b.petNoti1();
+                }
+            });
+            button2.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    b.setOption(2);
+                    System.out.println("Heal");
+                    b.petHeal();
+                    b.petNoti2();
+                }
+            });
+            button3.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    b.setOption(3);
+                    System.out.println("Elemental Skill");
+                    b.petElemental();
+                    b.petNoti3();
+                }
+            });
+            button4.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    b.setOption(4);
+                    System.out.println("Burst Skill");
+                    b.petBurst();
+                    b.petNoti4();
+                }
+            });
+            switch (b.getOption()){
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+            }
+            Random generator = new Random();
+            int bot = generator.nextInt((15 - 0) + 1) + 0;
+            b.bossNoti0();
+            b.bossPassive();
+            if (bot < 7)
+            {
+                b.bossAttack();
+                b.bossNoti1();
+            }
+            else if (bot < 11){
+                b.bossHeal();
+                b.bossNoti2();
+            }
+            else if (bot < 14)
+            {
+                b.bossElemental();
+                b.bossNoti3();
+            }
+            else{
+                b.bossBurst();
+                b.bossNoti4();
+            }
+        } while(b.check());
 
-        button.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                System.out.println("Attack");
-            }
-        });
-        button2.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                System.out.println("Heal");
-            }
-        });
-        button3.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                System.out.println("Elemental Skill");
-            }
-        });
-        button4.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                System.out.println("Burst Skill");
-            }
-        });
     }
 }
 

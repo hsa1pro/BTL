@@ -7,7 +7,8 @@ public class firstPet extends Character{
         setPassive("Void Energy");
         setElemental("Dynamax Cannon");
         setBurst("Enternabeam");
-        setHealth(75);
+        setOriginHealth(100);
+        setHealth(getOriginHealth());
         setOriginAttack(100);
         setOriginArmor(70);
         setAttack(getOriginAttack());
@@ -42,7 +43,9 @@ public class firstPet extends Character{
     }
     public void healSkill(){
         int heal = generator.nextInt((15 - 10) + 1) + 10;
-        setHealth(getHealth() + heal);
+        healUp(heal);
+        if (getHealth() > getOriginHealth())
+            setHealth(getOriginHealth());
     }
     public void elementalSkill(){
         int damage = generator.nextInt(((int)(getAttack()*1.5) - getAttack()) + 1) + getAttack();

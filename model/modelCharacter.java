@@ -18,11 +18,13 @@ public class modelCharacter {
         namechar = name;
     }
     public void setPassive(String passive){this.passive = passive;}
-    public void setElemental(String element){this.elemental = elemental;}
+    public void setElemental(String elemental){this.elemental = elemental;}
     public void setBurst(String burst){this.burst = burst;}
     public void setHealth(int health){
         this.health = health;
     }
+    public void healDown(int heal){health -= heal;}
+    public void healUp(int heal){health += heal;}
     public void setArmor(int armor){
         this.armor = armor;
     }

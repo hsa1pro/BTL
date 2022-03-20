@@ -5,7 +5,8 @@ public class firstBoss extends Character{
         setName("Mugendaina");
         setElemental("Dynamax Cannon");
         setBurst("Enternabeam");
-        setHealth(75);
+        setOriginHealth(100);
+        setHealth(getOriginHealth());
         setOriginAttack(100);
         setOriginArmor(70);
         setAttack(getOriginAttack());
@@ -20,7 +21,7 @@ public class firstBoss extends Character{
         if (getPassiveTurn() > 0){
             setOriginAttack(120);
             setAttack(getOriginAttack());
-            setHealth(getHealth() + 10);
+            healUp((int)(getOriginHealth()/10));
             setPassiveTurn(getPassiveTurn() - 1);
         }
     }
@@ -28,7 +29,7 @@ public class firstBoss extends Character{
     public void passive()
     {
         passiveEffect();
-        if (getHealth() <= getHealth()/2 && getPassiveMode() == false)
+        if (getHealth() <= (int)(getOriginHealth()/2) && getPassiveMode() == false)
         {
             setPassiveTurn(3);
             setPassiveMode(true);
@@ -40,7 +41,9 @@ public class firstBoss extends Character{
     }
     public void healSkill(){
         int heal = generator.nextInt((15 - 10) + 1) + 10;
-        setHealth(getHealth() + heal);
+        healUp(heal);
+        if (getHealth() > getOriginHealth())
+            setHealth(getOriginHealth());
     }
     public void elementalSkill(){
         int damage = generator.nextInt(((int)(getAttack()*1.5) - getAttack()) + 1) + getAttack();

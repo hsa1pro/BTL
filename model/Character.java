@@ -4,6 +4,7 @@ public class Character extends modelCharacter{
     public Random generator = new Random();
     private int originAttack;
     private int originArmor;
+    private int originHealth;
     private int damage;
     private int buff;
     private int debuff;
@@ -15,6 +16,7 @@ public class Character extends modelCharacter{
 
     protected void setOriginAttack(int originAttack){this.originAttack = originAttack;}
     protected void setOriginArmor(int originArmor){this.originArmor = originArmor;}
+    protected void setOriginHealth(int originHealth){this.originHealth = originHealth;}
     public void setDamage(int damage){this.damage = damage;}
     public void setBuff(int buff){this.buff = buff;}
     public void setDebuff(int debuff){this.debuff = debuff;}
@@ -27,6 +29,7 @@ public class Character extends modelCharacter{
     public int getDamage(){return damage;}
     public int getOriginAttack(){return originAttack;}
     public int getOriginArmor(){return originArmor;}
+    public int getOriginHealth(){return originHealth;}
     public int getBuff(){return buff;}
     public int getDebuff(){return debuff;}
     public int getDebuffTurn(){return debuffTurn;}
