@@ -3,6 +3,7 @@ import model.*;
 
 import java.util.Random;
 import java.util.Scanner;
+
 public class battleGameFirstFirst {
     private firstPet Pet;
     private firstBoss Boss;
@@ -18,58 +19,83 @@ public class battleGameFirstFirst {
             return false;
         return true;
     }
-    void battle(){
-        Scanner scanner = new Scanner(System.in);
-        do{
-            System.out.println("Hp: " + petHealth());
-            System.out.println("Boss's Hp: " + bossHealth());
-            petPassive();
-            petNoti0();
-            System.out.print("Ban muon lam gi: ");
-            int o = scanner.nextInt();
-            switch (o){
-                case 1:
-                    petAttack();
-                    petNoti1();
-                    break;
-                case 2:
-                    petHeal();
-                    petNoti2();
-                    break;
-                case 3:
-                    petElemental();
-                    petNoti3();
-                    break;
-                case 4:
-                    petBurst();
-                    petNoti4();
-                    break;
-            }
-            Random generator = new Random();
-            int bot = generator.nextInt((15 - 0) + 1) + 0;
-            bossNoti0();
-            bossPassive();
-            if (bot < 7)
-            {
-                bossAttack();
-                bossNoti1();
-            }
-            else if (bot < 11){
-                bossHeal();
-                bossNoti2();
-            }
-            else if (bot < 14)
-            {
-                bossElemental();
-                bossNoti3();
-            }
-            else{
-                bossBurst();
-                bossNoti4();
-            }
+    public void BossAction(){
+        Random generator = new Random();
+        int bot = generator.nextInt((15 - 0) + 1) + 0;
+        battleGameFirstFirst b= new battleGameFirstFirst();
+        b.bossNoti0();
+        b.bossPassive();
+        if (bot < 7)
+        {
+            b.bossAttack();
+            b.bossNoti1();
         }
-        while (check() == true);
+        else if (bot < 11){
+            b.bossHeal();
+            b.bossNoti2();
+        }
+        else if (bot < 14)
+        {
+            b.bossElemental();
+            b.bossNoti3();
+        }
+        else{
+            b.bossBurst();
+            b.bossNoti4();
+        }
     }
+//    void battle(){
+//        Scanner scanner = new Scanner(System.in);
+//        do{
+//            System.out.println("Hp: " + petHealth());
+//            System.out.println("Boss's Hp: " + bossHealth());
+//            petPassive();
+//            petNoti0();
+//            System.out.print("Ban muon lam gi: ");
+//            int o = scanner.nextInt();
+//            switch (o){
+//                case 1:
+//                    petAttack();
+//                    petNoti1();
+//                    break;
+//                case 2:
+//                    petHeal();
+//                    petNoti2();
+//                    break;
+//                case 3:
+//                    petElemental();
+//                    petNoti3();
+//                    break;
+//                case 4:
+//                    petBurst();
+//                    petNoti4();
+//                    break;
+//            }
+//            Random generator = new Random();
+//            int bot = generator.nextInt((15 - 0) + 1) + 0;
+//            bossNoti0();
+//            bossPassive();
+//            if (bot < 7)
+//            {
+//                bossAttack();
+//                bossNoti1();
+//            }
+//            else if (bot < 11){
+//                bossHeal();
+//                bossNoti2();
+//            }
+//            else if (bot < 14)
+//            {
+//                bossElemental();
+//                bossNoti3();
+//            }
+//            else{
+//                bossBurst();
+//                bossNoti4();
+//            }
+//        }
+//        while (check() == true);
+//    }
     public void setOption(int option){this.option = option;}
     public int getOption(){return this.option;}
     public int petHealth(){return Pet.getHealth();}
@@ -111,24 +137,27 @@ public class battleGameFirstFirst {
     }
     public void petNoti1(){
         int damage = (Pet.getDamage() - Boss.getArmor());
+         Boss.healDown(damage);
         System.out.println("Ban su dung tan cong");
         System.out.println("Don danh gay " + damage + " sat thuong. ");
-        Boss.healDown(damage);
+
     }
     public void petNoti2(){
+
         System.out.println("Ban su dung hoi phuc. ");
+
     }
     public void petNoti3(){
         int damage = (Pet.getDamage() - Boss.getArmor());
-        System.out.println("Ban su dung " + Pet.getElemental());
-        System.out.println("Don danh gay " + damage + " sat thuong. ");
         Boss.healDown(damage);
+        System.out.println("Ban su dung "+ Pet.getElemental() );
+        System.out.println("Don danh gay " + damage + " sat thuong. ");
     }
     public void petNoti4(){
         int damage = (Pet.getDamage() - Boss.getArmor());
+        Boss.healDown(damage);
         System.out.println("Ban su dung " + Pet.getBurst());
         System.out.println("Don danh gay " + damage + " sat thuong. ");
-        Boss.healDown(damage);
     }
     public void bossNoti0(){
         if (Boss.getPassiveMode() && Boss.getPassiveTurn() > 0)
@@ -156,8 +185,8 @@ public class battleGameFirstFirst {
         Pet.healDown(damage);
     }
 
-    public static void main(String[] args) {
-        battleGameFirstFirst b = new battleGameFirstFirst();
-        b.battle();
-    }
+//    public static void main(String[] args) {
+//        battleGameFirstFirst b = new battleGameFirstFirst();
+//        b.battle();
+//    }
 }
