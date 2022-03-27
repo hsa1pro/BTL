@@ -6,23 +6,22 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class BackgroundImage {
-    public class JPanelWithBackground extends JPanel {
+//public class BackgroundImage {
+//    //add background image
+//    public static void addBackground() {
+//        try {
+//            JFrame frame= new JFrame();
+//            Image img = ImageIO.read(new File("C:\\Users\\User\\Admin\\IdeaProjects\\BTL\\view\\Battle in Haloween Night.png"));
+//            frame.setContentPane(new JLabel(new ImageIcon(img)));
+//            frame.setLayout(null);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public static void main(String[] args) {
+//        addBackground();
+//    }
+//}
+//
 
-        private Image backgroundImage;
-
-        // Some code to initialize the background image.
-        // Here, we use the constructor to load the image. This
-        // can vary depending on the use case of the panel.
-        public JPanelWithBackground(String fileName) throws IOException {
-            backgroundImage = ImageIO.read(new File(fileName));
-        }
-
-        public void paintComponent(Graphics g) {
-            super.paintComponent(g);
-
-            // Draw the background image.
-            g.drawImage(backgroundImage, 0, 0, this);
-        }
-    }
-}

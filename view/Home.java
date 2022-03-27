@@ -25,7 +25,7 @@ public class Home {
         JButton exit= new JButton("Exit");
 
 
-        home.setSize(800, 600);
+        home.setSize(500, 500);
         home.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         home.setLocationRelativeTo(null);
         home.setVisible(true);
@@ -61,8 +61,7 @@ public class Home {
             public void actionPerformed(ActionEvent e) {
                 home.dispose();
 //                new Game();
-                view.GUI a= new GUI();
-                a.Menu();
+               new getName();
 
             }
         });
@@ -76,8 +75,10 @@ public class Home {
 
         more.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                home.dispose();
+                //home.dispose();
 //                new More();
+                Credit v= new Credit();
+                v.buildCredit();
             }
         });
 
@@ -86,10 +87,6 @@ public class Home {
                 home.dispose();
             }
         });
-    }
-
-    public static void main(String[] args) {
-        new Home();
     }
 }
 

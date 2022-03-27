@@ -56,7 +56,7 @@ public class GUI {
        bosshp.setHorizontalTextPosition(SwingConstants.RIGHT);
 
 //       controlAction c= new controlAction();
-
+         GameOver g= new GameOver();
        button.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
                System.out.println("Player's Turn: ");
@@ -68,7 +68,9 @@ public class GUI {
                if (b.bossHealth()<=0) {
                    System.out.println("Ban da thang!");
 
-                   System.exit(0);
+//                   System.exit(0);
+                   frame.dispose();
+                   g.GameOverFrame();
                } else {
                    //Boss Turn
                    System.out.println("Boss's Turn: ");
@@ -78,7 +80,10 @@ public class GUI {
                }
                if(b.petHealth()<=0){
                    System.out.println("Ban da thua!");
-                   System.exit(0);
+//                   System.exit(0);
+                   frame.dispose();
+                   g.GameOverFrame();
+
                }
            }
        });
@@ -119,7 +124,9 @@ public class GUI {
                if (b.bossHealth()<=0) {
                    System.out.println("Ban da thang!");
 
-                   System.exit(0);
+//                   System.exit(0);
+                   frame.dispose();
+                   g.GameOverFrame();
                } else {
                    //Boss Turn
                    System.out.println("Boss's Turn: ");
@@ -129,7 +136,9 @@ public class GUI {
                }
                if(b.petHealth()<=0){
                    System.out.println("Ban da thua!");
-                   System.exit(0);
+//                   System.exit(0);
+                   frame.dispose();
+                   g.GameOverFrame();
                }
            }
        });
@@ -144,7 +153,9 @@ public class GUI {
                if (b.bossHealth()<=0) {
                    System.out.println("Ban da thang!");
 
-                   System.exit(0);
+//                   System.exit(0);
+                   frame.dispose();
+                   g.GameOverFrame();
                } else {
                    //Boss Turn
                    System.out.println("Boss's Turn: ");
@@ -154,7 +165,9 @@ public class GUI {
                }
                if(b.petHealth()<=0){
                    System.out.println("Ban da thua!");
-                   System.exit(0);
+//                   System.exit(0);
+                   frame.dispose();
+                   g.GameOverFrame();
                }
            }
        });

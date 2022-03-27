@@ -7,8 +7,6 @@ import java.io.IOException;
 import javax.swing.*;
 public class Main {
     public static void main(String[] args) throws IOException {
-      GUI a= new GUI();
-      a.Menu();
-
+      new Home();
     }
 }
