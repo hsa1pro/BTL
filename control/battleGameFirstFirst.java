@@ -22,26 +22,25 @@ public class battleGameFirstFirst {
     public void BossAction(){
         Random generator = new Random();
         int bot = generator.nextInt((15 - 0) + 1) + 0;
-        battleGameFirstFirst b= new battleGameFirstFirst();
-        b.bossNoti0();
-        b.bossPassive();
+        bossNoti0();
+        bossPassive();
         if (bot < 7)
         {
-            b.bossAttack();
-            b.bossNoti1();
+            bossAttack();
+            bossNoti1();
         }
         else if (bot < 11){
-            b.bossHeal();
-            b.bossNoti2();
+            bossHeal();
+            bossNoti2();
         }
         else if (bot < 14)
         {
-            b.bossElemental();
-            b.bossNoti3();
+            bossElemental();
+            bossNoti3();
         }
         else{
-            b.bossBurst();
-            b.bossNoti4();
+            bossBurst();
+            bossNoti4();
         }
     }
 //    void battle(){

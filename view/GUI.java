@@ -73,6 +73,7 @@ public class GUI {
                    //Boss Turn
                    System.out.println("Boss's Turn: ");
                    b.BossAction();
+                   System.out.println("Player's HP: "+ b.petHealth());
                    playerhp.setText("Player's HP: "+ b.petHealth());
                }
                if(b.petHealth()<=0){
@@ -98,6 +99,7 @@ public class GUI {
                    //Boss Turn
                    System.out.println("Boss's Turn: ");
                    b.BossAction();
+                   System.out.println("Player's HP: "+ b.petHealth());
                    playerhp.setText("Player's HP: "+ b.petHealth());
                }
                if(b.petHealth()<=0){
@@ -122,6 +124,7 @@ public class GUI {
                    //Boss Turn
                    System.out.println("Boss's Turn: ");
                    b.BossAction();
+                   System.out.println("Player's HP: "+ b.petHealth());
                    playerhp.setText("Player's HP: "+ b.petHealth());
                }
                if(b.petHealth()<=0){
@@ -146,6 +149,7 @@ public class GUI {
                    //Boss Turn
                    System.out.println("Boss's Turn: ");
                    b.BossAction();
+                   System.out.println("Player's HP: "+ b.petHealth());
                    playerhp.setText("Player's HP: "+ b.petHealth());
                }
                if(b.petHealth()<=0){
