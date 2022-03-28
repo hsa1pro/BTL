@@ -6,30 +6,46 @@ import javax.swing.*;
 import java.time.LocalDateTime;
 import control.database;
 public class getName {
-    JFrame frame = new JFrame("Enter your name");
+    JFrame frame = new JFrame("Who is snake?");
     public getName(){
-        //get player name
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400,100);
+        frame.setSize(410,250);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setVisible(true);
         buildPannel();
     }
     private void buildPannel(){
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(2,1));
         JLabel label = new JLabel("Enter your name");
-        JTextField text = new JTextField(10);
+        JTextField text = new JTextField();
         JButton button = new JButton("OK");
-        //set position of button center
-        button.setHorizontalAlignment(JButton.CENTER);
-        button.setBounds(100,100,100,50);
+        ImageIcon img = new ImageIcon("D:/texture/getName.png");
+        JLabel imgLabel= new JLabel(img);
 
-        panel.add(label);
-        panel.add(text);
-        panel.add(button);
-        frame.add(panel);
+        JPanel imgPanel = new JPanel();
+        JPanel panel = new JPanel();
+        JPanel buttonPanel = new JPanel();
+
+        frame.add(BorderLayout.NORTH, imgPanel);
+        imgPanel.add(imgLabel);
+        frame.add(BorderLayout.CENTER, panel);
+        panel.setLayout(new GridLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.insets = new Insets(10, 10, 10, 10);
+        constraints.weighty = 1;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.gridx =0;
+        constraints.gridy = 0;
+        constraints.weightx = 1;
+        panel.add(label, constraints);
+        constraints.gridx = 1;
+        constraints.weightx = 4;
+        panel.add(text, constraints);
+
+        frame.add(BorderLayout.SOUTH, buttonPanel);
+        buttonPanel.add(button);
+
+
         GUI gui = new GUI();
         database db = new database();
         button.addActionListener(new ActionListener(){

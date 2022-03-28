@@ -13,7 +13,7 @@ public class Home extends JFrame{
         JPanel menuPanel= new JPanel();
         JPanel buttonPanel= new JPanel();
 
-        ImageIcon img = new ImageIcon("D:/texture/home.png");
+        ImageIcon img = new ImageIcon("D:/texture/home.gif");
         JLabel imgLabel= new JLabel(img, JLabel.CENTER);
 
 
@@ -21,6 +21,7 @@ public class Home extends JFrame{
         JButton more= new JButton("Learn More");
         JButton exit= new JButton("Exit");
 
+        setTitle("Boss Rabbit");
         setSize(800, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
