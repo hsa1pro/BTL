@@ -56,7 +56,6 @@ public class GUI {
        bosshp.setHorizontalTextPosition(SwingConstants.RIGHT);
 
 //       controlAction c= new controlAction();
-         GameOver g= new GameOver();
        button.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
                System.out.println("Player's Turn: ");
@@ -70,7 +69,7 @@ public class GUI {
 
 //                   System.exit(0);
                    frame.dispose();
-                   g.GameOverFrame();
+                   new gameWin();
                } else {
                    //Boss Turn
                    System.out.println("Boss's Turn: ");
@@ -82,7 +81,7 @@ public class GUI {
                    System.out.println("Ban da thua!");
 //                   System.exit(0);
                    frame.dispose();
-                   g.GameOverFrame();
+                   new gameLoose();
 
                }
            }
@@ -126,7 +125,7 @@ public class GUI {
 
 //                   System.exit(0);
                    frame.dispose();
-                   g.GameOverFrame();
+                   new gameWin();
                } else {
                    //Boss Turn
                    System.out.println("Boss's Turn: ");
@@ -138,7 +137,7 @@ public class GUI {
                    System.out.println("Ban da thua!");
 //                   System.exit(0);
                    frame.dispose();
-                   g.GameOverFrame();
+                   new gameLoose();
                }
            }
        });
@@ -155,7 +154,7 @@ public class GUI {
 
 //                   System.exit(0);
                    frame.dispose();
-                   g.GameOverFrame();
+                   new gameWin();
                } else {
                    //Boss Turn
                    System.out.println("Boss's Turn: ");
@@ -167,7 +166,7 @@ public class GUI {
                    System.out.println("Ban da thua!");
 //                   System.exit(0);
                    frame.dispose();
-                   g.GameOverFrame();
+                   new gameLoose();
                }
            }
        });

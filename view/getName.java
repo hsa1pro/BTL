@@ -9,7 +9,7 @@ public class getName {
     JFrame frame = new JFrame("Who is snake?");
     public getName(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(410,250);
+        frame.setSize(410,300);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setVisible(true);

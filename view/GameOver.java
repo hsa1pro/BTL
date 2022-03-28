@@ -8,26 +8,22 @@ import java.sql.SQLException;
 import javax.swing.*;
 
 
-public class GameOver {
-    JFrame frame = new JFrame("Game Over");
-    private void buildPannel(){
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(2,3));
-        JLabel label = new JLabel("Game Over");
-        JButton button = new JButton("Replay");
-        JButton show= new JButton("Show Player's List");
-        JButton exit= new JButton("Exit");
+public class GameOver extends JFrame{
+    JButton replay = new JButton("Replay");
+    JButton show = new JButton("Show Player's List");
+    JButton exit= new JButton("Exit");
+    public GameOver(){
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(800,700);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setVisible(true);
 
-        panel.add(label);
-        panel.add(button);
-        panel.add(show);
-        panel.add(exit);
 
-        frame.add(panel);
-        button.addActionListener(new ActionListener(){
+        replay.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 new Home();
-                frame.dispose();
+                dispose();
             }
         });
         show.addActionListener(new ActionListener(){
@@ -38,7 +34,7 @@ public class GameOver {
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
-                frame.dispose();
+                dispose();
             }
         });
         exit.addActionListener(new ActionListener(){
@@ -46,13 +42,5 @@ public class GameOver {
                 System.exit(0);
             }
         });
-    }
-    public void GameOverFrame(){
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300,150);
-        frame.setLocationRelativeTo(null);
-        frame.setResizable(false);
-        frame.setVisible(true);
-        buildPannel();
     }
 }
