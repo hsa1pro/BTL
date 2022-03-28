@@ -13,6 +13,7 @@ public class GameOver extends JFrame{
     JButton show = new JButton("Show Player's List");
     JButton exit= new JButton("Exit");
     public GameOver(){
+        setTitle("Game Over");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800,700);
         setLocationRelativeTo(null);

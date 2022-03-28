@@ -55,7 +55,7 @@ public class GUI {
        playerhp.setHorizontalTextPosition(SwingConstants.LEFT);
        bosshp.setHorizontalTextPosition(SwingConstants.RIGHT);
 
-//       controlAction c= new controlAction();
+
        button.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
                System.out.println("Player's Turn: ");
@@ -123,7 +123,7 @@ public class GUI {
                if (b.bossHealth()<=0) {
                    System.out.println("Ban da thang!");
 
-//                   System.exit(0);
+
                    frame.dispose();
                    new gameWin();
                } else {
@@ -135,7 +135,7 @@ public class GUI {
                }
                if(b.petHealth()<=0){
                    System.out.println("Ban da thua!");
-//                   System.exit(0);
+
                    frame.dispose();
                    new gameLoose();
                }
@@ -152,7 +152,6 @@ public class GUI {
                if (b.bossHealth()<=0) {
                    System.out.println("Ban da thang!");
 
-//                   System.exit(0);
                    frame.dispose();
                    new gameWin();
                } else {
@@ -164,7 +163,7 @@ public class GUI {
                }
                if(b.petHealth()<=0){
                    System.out.println("Ban da thua!");
-//                   System.exit(0);
+
                    frame.dispose();
                    new gameLoose();
                }
