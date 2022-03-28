@@ -19,11 +19,12 @@ public class Home extends JFrame{
 
         //Button
         JButton start = new JButton("New Game");
+        JButton htp = new JButton("How to play");
         JButton creadit = new JButton("Creadit");
         JButton exit = new JButton("Exit");
         // set Frame
         setTitle("Boss Rabbit");
-        setSize(800, 700);
+        setSize(800, 750);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -33,8 +34,9 @@ public class Home extends JFrame{
         menuPanel.add(imgLabel);
         // create button pannel
         add(BorderLayout.SOUTH, buttonPanel);
-        buttonPanel.setLayout(new GridLayout(3,1));
+        buttonPanel.setLayout(new GridLayout(4,1));
         buttonPanel.add(start);
+        buttonPanel.add(htp);
         buttonPanel.add(creadit);
         buttonPanel.add(exit);
 
@@ -45,10 +47,14 @@ public class Home extends JFrame{
                new getName();
             }
         });
-
+        htp.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new guide();
+            }
+        });
         creadit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Credit v= new Credit();
+                new Credit();
             }
         });
         exit.addActionListener(new ActionListener() {
