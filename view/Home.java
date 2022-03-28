@@ -13,14 +13,15 @@ public class Home extends JFrame{
         JPanel menuPanel= new JPanel();
         JPanel buttonPanel= new JPanel();
 
+        //image
         ImageIcon img = new ImageIcon("D:/texture/home.gif");
         JLabel imgLabel= new JLabel(img, JLabel.CENTER);
 
-
-        JButton start= new JButton("New Game");
-        JButton more= new JButton("Learn More");
-        JButton exit= new JButton("Exit");
-
+        //Button
+        JButton start = new JButton("New Game");
+        JButton creadit = new JButton("Creadit");
+        JButton exit = new JButton("Exit");
+        // set Frame
         setTitle("Boss Rabbit");
         setSize(800, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,7 +35,7 @@ public class Home extends JFrame{
         add(BorderLayout.SOUTH, buttonPanel);
         buttonPanel.setLayout(new GridLayout(3,1));
         buttonPanel.add(start);
-        buttonPanel.add(more);
+        buttonPanel.add(creadit);
         buttonPanel.add(exit);
 
         // set event fot button
@@ -45,10 +46,9 @@ public class Home extends JFrame{
             }
         });
 
-        more.addActionListener(new ActionListener() {
+        creadit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Credit v= new Credit();
-                v.buildCredit();
             }
         });
         exit.addActionListener(new ActionListener() {
