@@ -12,6 +12,7 @@ public class gameWin extends GameOver{
         JLabel imgLabel= new JLabel(img, JLabel.CENTER);
         JPanel imgPanel = new JPanel();
         add(BorderLayout.CENTER, imgPanel);
+        imgPanel.add(imgLabel);
 
         JPanel buttonPanel = new JPanel();
         add(BorderLayout.SOUTH, buttonPanel);

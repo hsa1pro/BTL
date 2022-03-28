@@ -2,12 +2,12 @@ package model;
 
 public class firstBoss extends Character{
     public firstBoss(){
-        setName("Mugendaina");
-        setElemental("Dynamax Cannon");
-        setBurst("Enternabeam");
-        setOriginHealth(100);
+        setName("Boss Rabbit");
+        setElemental("Rider Kick");
+        setBurst("Carrotbeam");
+        setOriginHealth(150);
         setHealth(getOriginHealth());
-        setOriginAttack(100);
+        setOriginAttack(90);
         setOriginArmor(70);
         setAttack(getOriginAttack());
         setArmor(getOriginArmor());
@@ -16,25 +16,7 @@ public class firstBoss extends Character{
         setDebuff(0);
         setDebuffTurn(0);
     }
-    private void passiveEffect()
-    {
-        if (getPassiveTurn() > 0){
-            setOriginAttack(120);
-            setAttack(getOriginAttack());
-            healUp((int)(getOriginHealth()/10));
-            setPassiveTurn(getPassiveTurn() - 1);
-        }
-    }
     @Override
-    public void passive()
-    {
-        passiveEffect();
-        if (getHealth() <= (int)(getOriginHealth()/2) && getPassiveMode() == false)
-        {
-            setPassiveTurn(3);
-            setPassiveMode(true);
-        }
-    }
     public void attackSkill(){
         int damage = generator.nextInt(((int)(getAttack()*1.2) - (int)(getAttack()*0.8)) + 1) + (int)(getAttack()*0.8);
         setDamage(damage);

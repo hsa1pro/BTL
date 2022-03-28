@@ -5,8 +5,8 @@ public class firstPet extends Character{
     public firstPet(){
         setName("Mugendaina");
         setPassive("Void Energy");
-        setElemental("Dynamax Cannon");
-        setBurst("Enternabeam");
+        setElemental("Bite");
+        setBurst("Poisonbeam");
         setOriginHealth(100);
         setHealth(getOriginHealth());
         setOriginAttack(100);
@@ -18,25 +18,7 @@ public class firstPet extends Character{
         setDebuff(0);
         setDebuffTurn(0);
     }
-    private void passiveEffect()
-    {
-        if (getPassiveTurn() > 0){
-            setOriginAttack(120);
-            setAttack(getOriginAttack());
-            setHealth(getHealth() + 10);
-            setPassiveTurn(getPassiveTurn() - 1);
-        }
-    }
     @Override
-    public void passive()
-    {
-        passiveEffect();
-        if (getHealth() <= getHealth()/2 && getPassiveMode() == false)
-        {
-            setPassiveTurn(3);
-            setPassiveMode(true);
-        }
-    }
     public void attackSkill(){
         int damage = generator.nextInt(((int)(getAttack()*1.2) - (int)(getAttack()*0.8)) + 1) + (int)(getAttack()*0.8);
         setDamage(damage);
@@ -49,11 +31,12 @@ public class firstPet extends Character{
     }
     public void elementalSkill(){
         int damage = generator.nextInt(((int)(getAttack()*1.5) - getAttack()) + 1) + getAttack();
-        setBuff(2);
+        setElementalTurn(2);
         setDamage(damage);
     }
     public void burstSkill(){
         int damage = generator.nextInt(((int)(getAttack()*1.8) - (int)(getAttack()*1.2)) + 1) + (int)(getAttack()*1.2);
+        setBurstTurn(3);
         setDamage(damage);
     }
 }

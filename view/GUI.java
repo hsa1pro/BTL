@@ -1,88 +1,89 @@
 package view;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import control.*;
-import model.*;
-public class GUI {
+
+public class GUI extends JFrame{
+    battleGameFirstFirst b;
+    JLabel playerhp;
+    JLabel bosshp;
+    JLabel petNotice;
+    JLabel bossNotice;
    public void Menu() {
-       JFrame frame = new JFrame(" Game Demo ");
-       JPanel panel = new JPanel();
-       JPanel panel2 = new JPanel();
-       JPanel panel3 = new JPanel();
-       JPanel panel4 = new JPanel();
+       JPanel hpPanel = new JPanel();
+       JPanel battlePanel = new JPanel();
+       JPanel noticePanel = new JPanel();
+       JPanel buttonPanel = new JPanel();
 
        JButton button = new JButton("Attack");
        JButton button2 = new JButton("Heal");
        JButton button3 = new JButton("Elemental Skill");
        JButton button4 = new JButton("Burst Skill");
 
-       battleGameFirstFirst b = new battleGameFirstFirst();
-       int s = b.petHealth();
-       int d = b.bossHealth();
-       JLabel playerhp = new JLabel("Player's HP: " + s);
-       JLabel bosshp = new JLabel("Boss's HP: " + d);
+       b = new battleGameFirstFirst();
+       playerhp = new JLabel("Player's HP: " + b.petHealth());
+       bosshp = new JLabel("Boss's HP: " + b.bossHealth());
+       petNotice = new JLabel("Let start");
+       bossNotice = new JLabel("");
+       ImageIcon img = new ImageIcon("D:/texture/battle.gif");
+       JLabel imgLabel = new JLabel(img, JLabel.CENTER);
 
-       JLabel notice= new JLabel("");
+       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       setSize(800, 800);
+       setLocationRelativeTo(null);
+       setVisible(true);
+       setResizable(false);
+       hpPanel.setLayout(new GridLayout(1, 2));
+       buttonPanel.setLayout(new GridLayout(2, 2));
 
-       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       frame.setSize(800, 600);
-       frame.setLocationRelativeTo(null);
-       frame.setVisible(true);
-       frame.setResizable(false);
-       frame.setLayout(new GridLayout(4, 1));
-       panel.setLayout(new GridLayout(1, 2));
-       panel2.setLayout(new GridLayout(2, 1));
-       panel3.setLayout(new GridLayout(2, 1));
-       panel4.setLayout(new GridLayout(2, 2));
 
-       panel.add(playerhp);
-       panel.add(bosshp);
+       buttonPanel.add(button);
+       buttonPanel.add(button2);
+       buttonPanel.add(button3);
+       buttonPanel.add(button4);
 
-       panel3.add(notice);
 
-       panel4.add(button);
-       panel4.add(button2);
-       panel4.add(button3);
-       panel4.add(button4);
+       add(BorderLayout.CENTER,battlePanel);
+       battlePanel.add(imgLabel);
+       add(BorderLayout.SOUTH, noticePanel);
+       JPanel notiPanel = new JPanel();
+       noticePanel.setLayout(new GridLayout(2,1));
+       notiPanel.add(petNotice);
+       notiPanel.add(bossNotice);
+       noticePanel.setLayout(new GridLayout(3,1));
 
-       frame.add(panel);
-       frame.add(panel2);
-       frame.add(panel3);
-       frame.add(panel4);
+       hpPanel.setLayout(new GridLayout(1,2));
+       playerhp.setHorizontalTextPosition(SwingConstants.RIGHT);
+       bosshp.setHorizontalTextPosition(SwingConstants.LEFT);
+       hpPanel.add(playerhp);
+       hpPanel.add(bosshp);
 
-       playerhp.setHorizontalTextPosition(SwingConstants.LEFT);
-       bosshp.setHorizontalTextPosition(SwingConstants.RIGHT);
+       noticePanel.add(hpPanel);
+       noticePanel.add(notiPanel);
+       noticePanel.add(buttonPanel);
 
 
        button.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
-               System.out.println("Player's Turn: ");
-               System.out.println("Attack Skill");
-
                b.petAttack();
-               b.petNoti1();
+               b.petETD();
+               b.petBTD();
+               petNotice.setText(b.petNoti1());
                bosshp.setText("Boss's HP: "+ b.bossHealth());
                if (b.bossHealth()<=0) {
-                   System.out.println("Ban da thang!");
-
-//                   System.exit(0);
-                   frame.dispose();
+                   dispose();
                    new gameWin();
                } else {
                    //Boss Turn
-                   System.out.println("Boss's Turn: ");
-                   b.BossAction();
-                   System.out.println("Player's HP: "+ b.petHealth());
+                   botTurn();
                    playerhp.setText("Player's HP: "+ b.petHealth());
                }
                if(b.petHealth()<=0){
-                   System.out.println("Ban da thua!");
-//                   System.exit(0);
-                   frame.dispose();
+                   dispose();
                    new gameLoose();
-
                }
            }
        });
@@ -90,87 +91,105 @@ public class GUI {
 
        button2.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
-               System.out.println("Player's Turn: ");
-               System.out.println("Heal Skill");
                b.petHeal();
-               b.petNoti2();
+               b.petETD();
+               b.petBTD();
+               petNotice.setText(b.petNoti2());
                bosshp.setText("Boss's HP: "+ b.bossHealth());
                if (b.bossHealth()<=0) {
-                   System.out.println("Ban da thang!");
-
-                   System.exit(0);
+                   dispose();
+                   new gameWin();
                } else {
                    //Boss Turn
-                   System.out.println("Boss's Turn: ");
-                   b.BossAction();
-                   System.out.println("Player's HP: "+ b.petHealth());
+                   botTurn();
                    playerhp.setText("Player's HP: "+ b.petHealth());
                }
                if(b.petHealth()<=0){
-                   System.out.println("Ban da thua!");
-                   System.exit(0);
+                   dispose();
+                   new gameLoose();
                }
            }
        });
 
        button3.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
-               System.out.println("Player's Turn: ");
-               System.out.println("Elemental Skill");
-               b.petElemental();
-               b.petNoti3();
-               bosshp.setText("Boss's HP: "+ b.bossHealth());
-               if (b.bossHealth()<=0) {
-                   System.out.println("Ban da thang!");
-
-
-                   frame.dispose();
-                   new gameWin();
-               } else {
-                   //Boss Turn
-                   System.out.println("Boss's Turn: ");
-                   b.BossAction();
-                   System.out.println("Player's HP: "+ b.petHealth());
-                   playerhp.setText("Player's HP: "+ b.petHealth());
+               if (b.petET() > 0) {
+                   petNotice.setText("Co the su dung lai sau " + b.petET() + " luot.");
+                   bossNotice.setText("");
                }
-               if(b.petHealth()<=0){
-                   System.out.println("Ban da thua!");
-
-                   frame.dispose();
-                   new gameLoose();
+               else{
+                   b.petElemental();
+                   b.petBTD();
+                   petNotice.setText(b.petNoti3());
+                   bosshp.setText("Boss's HP: "+ b.bossHealth());
+                   if (b.bossHealth()<=0) {
+                       dispose();
+                       new gameWin();
+                   } else {
+                       //Boss Turn
+                       botTurn();
+                       playerhp.setText("Player's HP: "+ b.petHealth());
+                   }
+                   if(b.petHealth()<=0){
+                       dispose();
+                       new gameLoose();
+                   }
                }
+
            }
        });
 
        button4.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
-               System.out.println("Player's Turn: ");
-               System.out.println("Burst Skill");
-               b.petBurst();
-               b.petNoti4();
-               bosshp.setText("Boss's HP: "+ b.bossHealth());
-               if (b.bossHealth()<=0) {
-                   System.out.println("Ban da thang!");
-
-                   frame.dispose();
-                   new gameWin();
-               } else {
-                   //Boss Turn
-                   System.out.println("Boss's Turn: ");
-                   b.BossAction();
-                   System.out.println("Player's HP: "+ b.petHealth());
-                   playerhp.setText("Player's HP: "+ b.petHealth());
+               if (b.petBT() > 0) {
+                   petNotice.setText("Co the su dung lai sau " + b.petBT() + " luot.");
+                   bossNotice.setText("");
                }
-               if(b.petHealth()<=0){
-                   System.out.println("Ban da thua!");
-
-                   frame.dispose();
-                   new gameLoose();
+               else {
+                   b.petBurst();
+                   b.petETD();
+                   petNotice.setText(b.petNoti4());
+                   bosshp.setText("Boss's HP: "+ b.bossHealth());
+                   if (b.bossHealth()<=0) {
+                       dispose();
+                       new gameWin();
+                   } else {
+                       //Boss Turn
+                       botTurn();
+                       playerhp.setText("Player's HP: "+ b.petHealth());
+                   }
+                   if(b.petHealth()<=0){
+                       dispose();
+                       new gameLoose();
+                   }
                }
            }
        });
    }
- }
+    public void botTurn(){
+        Random generator = new Random();
+        int bot = generator.nextInt((15 - 0) + 1) + 0;
+        if (bot < 7)
+        {
+            b.bossAttack();
+            bossNotice.setText(b.bossNoti1());
+        }
+        else if (bot < 11){
+            b.bossHeal();
+            bossNotice.setText(b.bossNoti2());
+        }
+        else if (bot < 14)
+        {
+            b.bossElemental();
+            bossNotice.setText(b.bossNoti3());
+        }
+        else{
+            b.bossBurst();
+            bossNotice.setText(b.bossNoti4());
+        }
+    }
+
+}
 
 
 
