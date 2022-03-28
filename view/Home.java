@@ -1,92 +1,63 @@
 package view;
-import control.battleGameFirstFirst;
 
 import  java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.io.IOException;
+import java.awt.Image;
 
-public class Home {
+import static java.awt.Color.*;
+
+public class Home extends JFrame{
     //Home Screen
-
-
     public Home(){
-        JFrame home= new JFrame("Game Demo");
+        JPanel menuPanel= new JPanel();
+        JPanel buttonPanel= new JPanel();
 
-        JPanel label1= new JPanel();
-        JPanel label2= new JPanel();
+        ImageIcon img = new ImageIcon("D:/texture/home.png");
+        JLabel imgLabel= new JLabel(img, JLabel.CENTER);
 
-        JLabel title= new JLabel("Welcome To The Game!");
-        JLabel slogan= new JLabel("DEAD OR ALIVE! YOUR CHOOSE!");
 
         JButton start= new JButton("New Game");
-        JButton setting= new JButton("Setting");
         JButton more= new JButton("Learn More");
         JButton exit= new JButton("Exit");
 
+        setSize(800, 700);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setVisible(true);
+        setResizable(false);
+        // create menu panel
+        add(BorderLayout.CENTER, menuPanel);
+        menuPanel.add(imgLabel);
+        // create button pannel
+        add(BorderLayout.SOUTH, buttonPanel);
+        buttonPanel.setLayout(new GridLayout(3,1));
+        buttonPanel.add(start);
+        buttonPanel.add(more);
+        buttonPanel.add(exit);
 
-        home.setSize(500, 500);
-        home.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        home.setLocationRelativeTo(null);
-        home.setVisible(true);
-        home.setResizable(false);
-
-        label1.setLayout(new GridLayout(2,1));
-        label2.setLayout(new GridLayout(4, 1));
-
-        home.add(label1);
-        home.add(label2);
-
-        label1.add(title);
-        label1.add(slogan);
-        label2.add(start);
-        label2.add(setting);
-        label2.add(more);
-        label2.add(exit);
-
-        title.setBounds(100, 50, 50, 50);
-        slogan.setBounds(100, 150, 50, 50);
-        start.setBounds(100, 250, 50, 50);
-        setting.setBounds(100, 350, 50, 50);
-        more.setBounds(100, 450, 50, 50);
-        exit.setBounds(100, 550, 50, 50);
-
-        //set size button
-        start.setSize(50, 100);
-        setting.setSize(50, 100);
-        more.setSize(50, 100);
-        exit.setSize(50, 100);
-
+        // set event fot button
         start.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                home.dispose();
-//                new Game();
+                dispose();
                new getName();
-
-            }
-        });
-
-        setting.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                home.dispose();
-//                new Setting();
             }
         });
 
         more.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //home.dispose();
-//                new More();
                 Credit v= new Credit();
                 v.buildCredit();
             }
         });
-
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                home.dispose();
+                dispose();
             }
         });
+    }
+    public static void main(String[] args) {
+        Home h = new Home();
     }
 }
 
