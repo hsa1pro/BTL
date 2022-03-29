@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Credit extends JFrame{
     //build credit panel
     public Credit(){
-        ImageIcon img = new ImageIcon("D:/texture/more.png");
+        ImageIcon img = new ImageIcon("texture/more.png");
         JLabel imgLabel= new JLabel(img, JLabel.CENTER);
         setTitle("Credit");
         setContentPane(imgLabel);

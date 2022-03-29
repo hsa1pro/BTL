@@ -19,7 +19,7 @@ public class getName {
         JLabel label = new JLabel("Enter your name");
         JTextField text = new JTextField();
         JButton button = new JButton("OK");
-        ImageIcon img = new ImageIcon("D:/texture/getName.png");
+        ImageIcon img = new ImageIcon("texture/getName.png");
         JLabel imgLabel= new JLabel(img);
 
         JPanel imgPanel = new JPanel();

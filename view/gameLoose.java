@@ -8,7 +8,7 @@ public class gameLoose extends GameOver{
         create();
     }
     public void create(){
-        ImageIcon img = new ImageIcon("D:/texture/loose.png");
+        ImageIcon img = new ImageIcon("texture/loose.png");
         JLabel imgLabel= new JLabel(img, JLabel.CENTER);
         JPanel imgPanel = new JPanel();
         add(BorderLayout.CENTER, imgPanel);

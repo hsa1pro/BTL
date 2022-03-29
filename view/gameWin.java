@@ -8,7 +8,7 @@ public class gameWin extends GameOver{
         create();
     }
     public void create(){
-        ImageIcon img = new ImageIcon("D:/texture/win.png");
+        ImageIcon img = new ImageIcon("texture/win.png");
         JLabel imgLabel= new JLabel(img, JLabel.CENTER);
         JPanel imgPanel = new JPanel();
         add(BorderLayout.CENTER, imgPanel);

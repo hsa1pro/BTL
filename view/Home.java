@@ -14,7 +14,7 @@ public class Home extends JFrame{
         JPanel buttonPanel= new JPanel();
 
         //image
-        ImageIcon img = new ImageIcon("D:/texture/home.gif");
+        ImageIcon img = new ImageIcon("texture/home.gif");
         JLabel imgLabel= new JLabel(img, JLabel.CENTER);
 
         //Button

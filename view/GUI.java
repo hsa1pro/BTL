@@ -1,6 +1,5 @@
 package view;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -28,7 +27,7 @@ public class GUI extends JFrame{
        bosshp = new JLabel("Boss's HP: " + b.bossHealth());
        petNotice = new JLabel("Let start");
        bossNotice = new JLabel("");
-       ImageIcon img = new ImageIcon("D:/texture/battle.gif");
+       ImageIcon img = new ImageIcon("texture/battle.gif");
        JLabel imgLabel = new JLabel(img, JLabel.CENTER);
 
        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,10 +35,9 @@ public class GUI extends JFrame{
        setLocationRelativeTo(null);
        setVisible(true);
        setResizable(false);
-       hpPanel.setLayout(new GridLayout(1, 2));
+
+
        buttonPanel.setLayout(new GridLayout(2, 2));
-
-
        buttonPanel.add(button);
        buttonPanel.add(button2);
        buttonPanel.add(button3);
@@ -48,23 +46,23 @@ public class GUI extends JFrame{
 
        add(BorderLayout.CENTER,battlePanel);
        battlePanel.add(imgLabel);
+
        add(BorderLayout.SOUTH, noticePanel);
        JPanel notiPanel = new JPanel();
        noticePanel.setLayout(new GridLayout(2,1));
        notiPanel.add(petNotice);
        notiPanel.add(bossNotice);
-       noticePanel.setLayout(new GridLayout(3,1));
 
        hpPanel.setLayout(new GridLayout(1,2));
-       playerhp.setHorizontalTextPosition(SwingConstants.RIGHT);
-       bosshp.setHorizontalTextPosition(SwingConstants.LEFT);
        hpPanel.add(playerhp);
        hpPanel.add(bosshp);
+       playerhp.setHorizontalTextPosition(SwingConstants.RIGHT);
+       bosshp.setHorizontalTextPosition(SwingConstants.LEFT);
 
+       noticePanel.setLayout(new GridLayout(3,1));
        noticePanel.add(hpPanel);
        noticePanel.add(notiPanel);
        noticePanel.add(buttonPanel);
-
 
        button.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
@@ -87,7 +85,6 @@ public class GUI extends JFrame{
                }
            }
        });
-
 
        button2.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
@@ -166,6 +163,7 @@ public class GUI extends JFrame{
            }
        });
    }
+
     public void botTurn(){
         Random generator = new Random();
         int bot = generator.nextInt((15 - 0) + 1) + 0;
