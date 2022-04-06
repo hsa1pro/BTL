@@ -3,9 +3,6 @@ package view;
 import  java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.Image;
-
-import static java.awt.Color.*;
 
 public class Home extends JFrame{
     //Home Screen

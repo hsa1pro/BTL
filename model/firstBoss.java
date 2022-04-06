@@ -7,7 +7,7 @@ public class firstBoss extends Character{
         setBurst("Carrotbeam");
         setOriginHealth(150);
         setHealth(getOriginHealth());
-        setOriginAttack(90);
+        setOriginAttack(100);
         setOriginArmor(70);
         setAttack(getOriginAttack());
         setArmor(getOriginArmor());

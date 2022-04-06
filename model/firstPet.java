@@ -1,7 +1,5 @@
 package model;
-
 public class firstPet extends Character{
-
     public firstPet(){
         setName("Mugendaina");
         setPassive("Void Energy");
@@ -17,6 +15,8 @@ public class firstPet extends Character{
         setBuff(0);
         setDebuff(0);
         setDebuffTurn(0);
+        setElementalTurn(2);
+        setBurstTurn(2);
     }
     @Override
     public void attackSkill(){

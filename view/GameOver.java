@@ -1,13 +1,8 @@
 package view;
-
 import control.showData;
-
-import java.awt.*;
 import java.awt.event.*;
 import java.sql.SQLException;
 import javax.swing.*;
-
-
 public class GameOver extends JFrame{
     JButton replay = new JButton("Replay");
     JButton show = new JButton("Show Player's List");
@@ -20,11 +15,11 @@ public class GameOver extends JFrame{
         setResizable(false);
         setVisible(true);
 
-
         replay.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                new Home();
                 dispose();
+                GUI g = new GUI();
+                g.Menu();
             }
         });
         show.addActionListener(new ActionListener(){
@@ -35,7 +30,6 @@ public class GameOver extends JFrame{
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
-                dispose();
             }
         });
         exit.addActionListener(new ActionListener(){

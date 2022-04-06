@@ -167,16 +167,16 @@ public class GUI extends JFrame{
     public void botTurn(){
         Random generator = new Random();
         int bot = generator.nextInt((15 - 0) + 1) + 0;
-        if (bot < 7)
+        if (bot < 5)
         {
             b.bossAttack();
             bossNotice.setText(b.bossNoti1());
         }
-        else if (bot < 11){
+        else if (bot < 7){
             b.bossHeal();
             bossNotice.setText(b.bossNoti2());
         }
-        else if (bot < 14)
+        else if (bot < 13)
         {
             b.bossElemental();
             bossNotice.setText(b.bossNoti3());

@@ -102,5 +102,4 @@ public class battleGameFirstFirst {
         Pet.healDown(damage);
         return s;
     }
-
 }

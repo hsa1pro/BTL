@@ -1,10 +1,4 @@
 package model;
-// buff la hieu ung gay cho ke dich
-// debuff la hieu ung ke dich gay cho minh
-// debuff 1 la giam attack trong 3 luot
-// debuff 2 la giam armor trong 3 luot
-// debuff 3 la tru mau trong 3 luot
-// debuff 4 la choang / debuff 4 se dung trong phan battle
 public class modelCharacter {
     private String namechar;
     private int health;

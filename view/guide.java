@@ -1,8 +1,6 @@
 package view;
-
 import java.awt.*;
 import javax.swing.*;
-
 public class guide {
     JFrame frame= new JFrame("Guide");
     public guide(){
